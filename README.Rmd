@@ -1,0 +1,41 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# GCLM
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of GCLM is to help you write lavaan() script for fitting generalized cross-lagged panel models (GCLM; Zyphur et al., 2019). Currently, there is only one function for fitting the base GCLM, but new functions and arguments may be added to automate the scripting of short-run Granger-Sims tests, and long-run impulse responses.
+
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("jsakaluk/GCLM")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(GCLM)
+library(lavaan)
+#Save/export script for GCLM between Sacrifice and Satisfaction over 5 waves
+base.model <- gclm(xvar = "sacrifice", yvar = "satisfaction", waves = 5)
+```
+

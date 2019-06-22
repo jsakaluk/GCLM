@@ -1,0 +1,54 @@
+#unit effects
+eta_x =~ sacrifice1+sacrifice2+sacrifice3+sacrifice4+sacrifice5
+eta_y =~ satisfaction1+satisfaction2+satisfaction3+satisfaction4+satisfaction5
+
+#impulses
+u_x1 =~ sacrifice1 
+u_x2 =~ sacrifice2 
+u_x3 =~ sacrifice3 
+u_x4 =~ sacrifice4 
+u_x5 =~ sacrifice5
+sacrifice1 ~~ 0*sacrifice1 
+sacrifice2 ~~ 0*sacrifice2 
+sacrifice3 ~~ 0*sacrifice3 
+sacrifice4 ~~ 0*sacrifice4 
+sacrifice5 ~~ 0*sacrifice5
+u_y1 =~ satisfaction1 
+u_y2 =~ satisfaction2 
+u_y3 =~ satisfaction3 
+u_y4 =~ satisfaction4 
+u_y5 =~ satisfaction5
+satisfaction1 ~~ 0*satisfaction1 
+satisfaction2 ~~ 0*satisfaction2 
+satisfaction3 ~~ 0*satisfaction3 
+satisfaction4 ~~ 0*satisfaction4 
+satisfaction5 ~~ 0*satisfaction5
+
+#regressions
+sacrifice2 ~ a*sacrifice1 + b*satisfaction1 + c*u_x1 + d*u_y1 
+sacrifice3 ~ a*sacrifice2 + b*satisfaction2 + c*u_x2 + d*u_y2 
+sacrifice4 ~ a*sacrifice3 + b*satisfaction3 + c*u_x3 + d*u_y3 
+sacrifice5 ~ a*sacrifice4 + b*satisfaction4 + c*u_x4 + d*u_y4
+satisfaction2 ~ f*sacrifice1 + g*satisfaction1 + h*u_x1 + i*u_y1 
+satisfaction3 ~ f*sacrifice2 + g*satisfaction2 + h*u_x2 + i*u_y2 
+satisfaction4 ~ f*sacrifice3 + g*satisfaction3 + h*u_x3 + i*u_y3 
+satisfaction5 ~ f*sacrifice4 + g*satisfaction4 + h*u_x4 + i*u_y4
+
+#co-movements
+u_x1 ~~ u_y1 
+u_x2 ~~ u_y2 
+u_x3 ~~ u_y3 
+u_x4 ~~ u_y4 
+u_x5 ~~ u_y5
+
+#restrictions
+u_x1 ~~ 0*eta_x + 0*eta_y + 0*u_x2+0*u_x3+0*u_x4+0*u_x5+0*u_y1+0*u_y2+0*u_y3+0*u_y4+0*u_y5 
+u_x2 ~~ 0*eta_x + 0*eta_y + 0*u_x3+0*u_x4+0*u_x5+0*u_y1+0*u_y2+0*u_y3+0*u_y4+0*u_y5 
+u_x3 ~~ 0*eta_x + 0*eta_y + 0*u_x4+0*u_x5+0*u_y1+0*u_y2+0*u_y3+0*u_y4+0*u_y5 
+u_x4 ~~ 0*eta_x + 0*eta_y + 0*u_x5+0*u_y1+0*u_y2+0*u_y3+0*u_y4+0*u_y5 
+u_x5 ~~ 0*eta_x + 0*eta_y + 0*u_y1+0*u_y2+0*u_y3+0*u_y4+0*u_y5 
+u_y1 ~~ 0*eta_x + 0*eta_y + 0*u_y2+0*u_y3+0*u_y4+0*u_y5 
+u_y2 ~~ 0*eta_x + 0*eta_y + 0*u_y3+0*u_y4+0*u_y5 
+u_y3 ~~ 0*eta_x + 0*eta_y + 0*u_y4+0*u_y5 
+u_y4 ~~ 0*eta_x + 0*eta_y + 0*u_y5 
+u_y5 ~~ 0*eta_x + 0*eta_y  

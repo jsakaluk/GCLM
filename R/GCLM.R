@@ -12,9 +12,9 @@
 #' lavaan functions, while also exporting to current working directory
 #' @export
 #' @examples
-#' base.model = GCLM(xvar = "sacrifice", yvar = "satisfaction", waves = 5)
+#' base.model = gclm(xvar = "sacrifice", yvar = "satisfaction", waves = 5)
 
-GCLM <- function(xvar, yvar, waves){
+gclm <- function(xvar, yvar, waves){
   #Create list of xvars over time
   xvars = list()
   for (i in 1:waves) {
@@ -103,7 +103,7 @@ GCLM <- function(xvar, yvar, waves){
 
    #Script Creation Syntax
    script = sprintf("#unit effects\n%s\n%s\n\n#impulses\n%s\n%s\n%s\n%s\n\n#regressions\n%s\n%s\n\n#co-movements\n%s\n\n#restrictions\n%s", eta.x, eta.y, ximp1, ximp2, yimp1, yimp2, xregs, yregs, comove, res)
-   cat(script,"\n", file = "test.txt")
+   cat(script,"\n", file = "GCLM.txt")
    return(script)
 }
 
