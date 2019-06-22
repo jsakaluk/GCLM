@@ -32,7 +32,7 @@ devtools::install_github("jsakaluk/GCLM")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r gclm scripting}
 library(GCLM)
 library(lavaan)
 #Save/export script for GCLM between Sacrifice and Satisfaction over 5 waves
@@ -41,4 +41,10 @@ base.model <- gclm(xvar = "sacrifice", yvar = "satisfaction", waves = 5)
 The function saves a lavaan() script for you to immediately submit to its model-fitting functions (e.g., lavaan::sem()), and also outputs a .txt document of the same script to the working directory.
 
 ![](figures/script.png)
+
+```{r lavaan model fitting, eval=FALSE}
+base.model.fit <- sem(base.model, data = dat)
+summary(base.model.fit)
+```
+
 Eventually, new functionality may be programmed to automate the tests of short-run and long-run effects. Until then, users can manually ammend this script and save as a new lavaan() script to conduct these additional tests.

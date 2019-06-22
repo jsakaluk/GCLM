@@ -40,7 +40,14 @@ The function saves a lavaan() script for you to immediately submit to
 its model-fitting functions (e.g., lavaan::sem()), and also outputs a
 .txt document of the same script to the working directory.
 
-![](figures/script.png) Eventually, new functionality may be programmed
-to automate the tests of short-run and long-run effects. Until then,
-users can manually ammend this script and save as a new lavaan() script
-to conduct these additional tests.
+![](figures/script.png)
+
+``` r
+base.model.fit <- sem(base.model, data = dat)
+summary(base.model.fit)
+```
+
+Eventually, new functionality may be programmed to automate the tests of
+short-run and long-run effects. Until then, users can manually ammend
+this script and save as a new lavaan() script to conduct these
+additional tests.
